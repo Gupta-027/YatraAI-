@@ -1,0 +1,69 @@
+name: yatraai
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: yatraai-db
+    environment:
+      POSTGRES_USER: yatra
+      POSTGRES_PASSWORD: yatra
+      POSTGRES_DB: yatraai
+    ports:
+      - "5432:5432"
+    volumes:
+      - yatra_pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yatra -d yatraai"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: infra/api.Dockerfile
+    container_name: yatraai-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      YATRA_ENV: development
+      DATABASE_URL: postgresql+psycopg://yatra:yatra@db:5432/yatraai
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      JWT_SECRET: ${JWT_SECRET:-dev-only-insecure-secret-change-me}
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-hashing}
+      WEATHER_PROVIDER: ${WEATHER_PROVIDER:-open-meteo}
+      ROUTING_PROVIDER: ${ROUTING_PROVIDER:-haversine}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+    container_name: yatraai-web
+    depends_on:
+      api:
+        condition: service_started
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_DEMO_MODE: "true"
+    ports:
+      - "3000:3000"
+
+volumes:
+  yatra_pgdata:

@@ -1,0 +1,89 @@
+{
+  "run_id": "suitability-3342d9f4",
+  "data_kind": "synthetic",
+  "warning": "SYNTHETIC LABELS. These metrics measure how well each learner recovered an artificial generative process. They say nothing about real traveller satisfaction, and no model here is promoted to production.",
+  "samples": 6000,
+  "positive_rate": 0.7332,
+  "label_noise": 0.12,
+  "seed": 20240101,
+  "results": [
+    {
+      "model": "logistic_regression",
+      "roc_auc": 0.6711,
+      "pr_auc": 0.8341,
+      "brier": 0.1826,
+      "accuracy": 0.7353
+    },
+    {
+      "model": "random_forest",
+      "roc_auc": 0.6404,
+      "pr_auc": 0.819,
+      "brier": 0.1863,
+      "accuracy": 0.736
+    },
+    {
+      "model": "gradient_boosting",
+      "roc_auc": 0.6404,
+      "pr_auc": 0.8147,
+      "brier": 0.1874,
+      "accuracy": 0.732
+    },
+    {
+      "model": "rule_based_production_control",
+      "roc_auc": 0.6676,
+      "pr_auc": 0.8278,
+      "brier": null,
+      "accuracy": null
+    }
+  ],
+  "best_learner_vs_control": {
+    "point_estimate": 0.0035,
+    "ci_low": -0.01,
+    "ci_high": 0.0173,
+    "resamples": 2000,
+    "significant": false,
+    "challenger": "logistic_regression"
+  },
+  "feature_importance": [
+    {
+      "feature": "interest_match",
+      "importance": 0.1448
+    },
+    {
+      "feature": "distance_penalty",
+      "importance": 0.1265
+    },
+    {
+      "feature": "group_fairness",
+      "importance": 0.1264
+    },
+    {
+      "feature": "accessibility_suitability",
+      "importance": 0.1086
+    },
+    {
+      "feature": "weather_suitability",
+      "importance": 0.0869
+    },
+    {
+      "feature": "budget_suitability",
+      "importance": 0.0867
+    },
+    {
+      "feature": "attraction_quality",
+      "importance": 0.0855
+    },
+    {
+      "feature": "evidence_quality",
+      "importance": 0.0825
+    },
+    {
+      "feature": "crowd_penalty",
+      "importance": 0.0799
+    },
+    {
+      "feature": "seasonal_suitability",
+      "importance": 0.0724
+    }
+  ]
+}

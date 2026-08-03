@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-display: Georgia, 'Times New Roman', serif;
+
+    --bg: 250 247 242;
+    --surface: 255 255 255;
+    --surface-2: 253 251 247;
+    --line: 230 225 216;
+    --text: 26 29 46;
+    --text-muted: 91 97 120;
+    --primary: 35 48 107;
+    --accent: 224 122 63;
+    --success: 15 123 108;
+  }
+
+  .dark {
+    --bg: 18 19 26;
+    --surface: 27 29 39;
+    --surface-2: 33 35 47;
+    --line: 44 47 61;
+    --text: 242 239 233;
+    --text-muted: 168 175 196;
+    --primary: 142 160 232;
+    --accent: 240 160 106;
+    --success: 79 196 176;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--text));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* Visible focus everywhere - a WCAG requirement, not a nicety. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+}
+
+@layer components {
+  .surface {
+    background-color: rgb(var(--surface));
+    border: 1px solid rgb(var(--line));
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50
+           focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white;
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--text) / 0.06),
+      transparent
+    );
+    animation: shimmer 1.6s infinite;
+  }
+
+  /* Leaflet needs explicit sizing and its controls restyled to match. */
+  .leaflet-container {
+    background: rgb(var(--surface-2));
+    font-family: var(--font-sans);
+    z-index: 0;
+  }
+  .leaflet-control-attribution {
+    background: rgb(var(--surface) / 0.9) !important;
+    color: rgb(var(--text-muted)) !important;
+    font-size: 10px !important;
+  }
+  .leaflet-bar a {
+    background: rgb(var(--surface)) !important;
+    color: rgb(var(--text)) !important;
+    border-color: rgb(var(--line)) !important;
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "cases": [
+    {
+      "case": "bengaluru_3day_balanced",
+      "cluster": "bengaluru",
+      "days": 3,
+      "pace": "balanced",
+      "members": 3,
+      "candidate_pool": 16,
+      "generators": {
+        "greedy": {
+          "total_travel_km": 176.24,
+          "total_travel_min": 547,
+          "travel_km_per_activity": 19.58,
+          "activities": 9,
+          "satisfied_preferences": 6,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 2,
+          "fairness_index": 0.9931,
+          "least_satisfied": 0.53,
+          "utility_score": 6.106,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 12.7,
+          "computation_ms_max": 15.25,
+          "cost_per_person_low": 7237.8,
+          "cost_per_person_high": 12236.98
+        },
+        "ortools": {
+          "total_travel_km": 81.19,
+          "total_travel_min": 305,
+          "travel_km_per_activity": 9.02,
+          "activities": 9,
+          "satisfied_preferences": 6,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 1,
+          "fairness_index": 0.9931,
+          "least_satisfied": 0.53,
+          "utility_score": 6.106,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 53.09,
+          "computation_ms_max": 56.31,
+          "cost_per_person_low": 7237.8,
+          "cost_per_person_high": 12236.98
+        }
+      },
+      "deltas": {
+        "travel_km_reduction_pct": 53.93,
+        "travel_min_reduction_pct": 44.24,
+        "activities_delta": 0,
+        "utility_delta": 0.0,
+        "extra_compute_ms": 40.39
+      }
+    },
+    {
+      "case": "delhi_agra_4day_heritage",
+      "cluster": "delhi-agra",
+      "days": 4,
+      "pace": "balanced",
+      "members": 4,
+      "candidate_pool": 14,
+      "generators": {
+        "greedy": {
+          "total_travel_km": 109.94,
+          "total_travel_min": 410,
+          "travel_km_per_activity": 8.46,
+          "activities": 13,
+          "satisfied_preferences": 8,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 0,
+          "fairness_index": 0.9945,
+          "least_satisfied": 0.5737,
+          "utility_score": 9.109,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 16.73,
+          "computation_ms_max": 17.62,
+          "cost_per_person_low": 8753.56,
+          "cost_per_person_high": 15215.71
+        },
+        "ortools": {
+          "total_travel_km": 53.91,
+          "total_travel_min": 272,
+          "travel_km_per_activity": 4.15,
+          "activities": 13,
+          "satisfied_preferences": 8,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 0,
+          "fairness_index": 0.9945,
+          "least_satisfied": 0.5737,
+          "utility_score": 9.108,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 58.64,
+          "computation_ms_max": 59.85,
+          "cost_per_person_low": 8753.56,
+          "cost_per_person_high": 15227.39
+        }
+      },
+      "deltas": {
+        "travel_km_reduction_pct": 50.96,
+        "travel_min_reduction_pct": 33.66,
+        "activities_delta": 0,
+        "utility_delta": -0.001,
+        "extra_compute_ms": 41.91
+      }
+    },
+    {
+      "case": "hyderabad_2day_packed",
+      "cluster": "hyderabad",
+      "days": 2,
+      "pace": "packed",
+      "members": 2,
+      "candidate_pool": 14,
+      "generators": {
+        "greedy": {
+          "total_travel_km": 102.56,
+          "total_travel_min": 354,
+          "travel_km_per_activity": 11.4,
+          "activities": 9,
+          "satisfied_preferences": 8,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 0,
+          "fairness_index": 0.9998,
+          "least_satisfied": 0.668,
+          "utility_score": 7.648,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 8.03,
+          "computation_ms_max": 10.78,
+          "cost_per_person_low": 3840.42,
+          "cost_per_person_high": 6659.99
+        },
+        "ortools": {
+          "total_travel_km": 47.99,
+          "total_travel_min": 227,
+          "travel_km_per_activity": 4.36,
+          "activities": 11,
+          "satisfied_preferences": 8,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 0,
+          "fairness_index": 1.0,
+          "least_satisfied": 0.6849,
+          "utility_score": 9.04,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 52.36,
+          "computation_ms_max": 52.71,
+          "cost_per_person_low": 3782.21,
+          "cost_per_person_high": 6633.59
+        }
+      },
+      "deltas": {
+        "travel_km_reduction_pct": 53.21,
+        "travel_min_reduction_pct": 35.88,
+        "activities_delta": 2,
+        "utility_delta": 1.392,
+        "extra_compute_ms": 44.33
+      }
+    },
+    {
+      "case": "varanasi_3day_spiritual",
+      "cluster": "varanasi",
+      "days": 3,
+      "pace": "relaxed",
+      "members": 2,
+      "candidate_pool": 13,
+      "generators": {
+        "greedy": {
+          "total_travel_km": 61.54,
+          "total_travel_min": 259,
+          "travel_km_per_activity": 6.84,
+          "activities": 9,
+          "satisfied_preferences": 6,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 1,
+          "fairness_index": 0.9938,
+          "least_satisfied": 0.6058,
+          "utility_score": 6.569,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 6.27,
+          "computation_ms_max": 7.75,
+          "cost_per_person_low": 6009.05,
+          "cost_per_person_high": 10348.74
+        },
+        "ortools": {
+          "total_travel_km": 5.2,
+          "total_travel_min": 120,
+          "travel_km_per_activity": 0.58,
+          "activities": 9,
+          "satisfied_preferences": 6,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 1,
+          "fairness_index": 0.9938,
+          "least_satisfied": 0.6175,
+          "utility_score": 6.554,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 63.95,
+          "computation_ms_max": 64.29,
+          "cost_per_person_low": 5960.24,
+          "cost_per_person_high": 11158.93
+        }
+      },
+      "deltas": {
+        "travel_km_reduction_pct": 91.55,
+        "travel_min_reduction_pct": 53.67,
+        "activities_delta": 0,
+        "utility_delta": -0.015,
+        "extra_compute_ms": 57.68
+      }
+    },
+    {
+      "case": "puri_konark_accessible",
+      "cluster": "puri-konark",
+      "days": 3,
+      "pace": "relaxed",
+      "members": 4,
+      "candidate_pool": 13,
+      "generators": {
+        "greedy": {
+          "total_travel_km": 225.5,
+          "total_travel_min": 675,
+          "travel_km_per_activity": 25.06,
+          "activities": 9,
+          "satisfied_preferences": 6,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 3,
+          "fairness_index": 0.9985,
+          "least_satisfied": 0.5848,
+          "utility_score": 5.915,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 7.31,
+          "computation_ms_max": 7.77,
+          "cost_per_person_low": 6093.58,
+          "cost_per_person_high": 10489.81
+        },
+        "ortools": {
+          "total_travel_km": 8.63,
+          "total_travel_min": 130,
+          "travel_km_per_activity": 0.96,
+          "activities": 9,
+          "satisfied_preferences": 6,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 0,
+          "fairness_index": 0.9973,
+          "least_satisfied": 0.5744,
+          "utility_score": 5.895,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 37.34,
+          "computation_ms_max": 40.16,
+          "cost_per_person_low": 6071.7,
+          "cost_per_person_high": 10431.98
+        }
+      },
+      "deltas": {
+        "travel_km_reduction_pct": 96.17,
+        "travel_min_reduction_pct": 80.74,
+        "activities_delta": 0,
+        "utility_delta": -0.02,
+        "extra_compute_ms": 30.03
+      }
+    },
+    {
+      "case": "shillong_4day_nature",
+      "cluster": "shillong-cherrapunji",
+      "days": 4,
+      "pace": "balanced",
+      "members": 3,
+      "candidate_pool": 12,
+      "generators": {
+        "greedy": {
+          "total_travel_km": 223.32,
+          "total_travel_min": 677,
+          "travel_km_per_activity": 22.33,
+          "activities": 10,
+          "satisfied_preferences": 7,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 4,
+          "fairness_index": 0.999,
+          "least_satisfied": 0.6234,
+          "utility_score": 6.31,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 6.46,
+          "computation_ms_max": 7.85,
+          "cost_per_person_low": 9978.68,
+          "cost_per_person_high": 18577.75
+        },
+        "ortools": {
+          "total_travel_km": 186.79,
+          "total_travel_min": 595,
+          "travel_km_per_activity": 16.98,
+          "activities": 11,
+          "satisfied_preferences": 9,
+          "preference_dimensions": 10,
+          "constraint_violations": 0,
+          "constraint_warnings": 1,
+          "fairness_index": 0.999,
+          "least_satisfied": 0.6234,
+          "utility_score": 6.868,
+          "is_valid": true,
+          "mandatory_scheduled": true,
+          "computation_ms_median": 42.04,
+          "computation_ms_max": 42.28,
+          "cost_per_person_low": 9989.06,
+          "cost_per_person_high": 18608.09
+        }
+      },
+      "deltas": {
+        "travel_km_reduction_pct": 16.36,
+        "travel_min_reduction_pct": 12.11,
+        "activities_delta": 1,
+        "utility_delta": 0.558,
+        "extra_compute_ms": 35.58
+      }
+    }
+  ],
+  "summary": {
+    "greedy": {
+      "total_travel_km": 149.85,
+      "total_travel_min": 487.0,
+      "travel_km_per_activity": 15.612,
+      "activities": 9.833,
+      "satisfied_preferences": 6.833,
+      "constraint_violations": 0.0,
+      "fairness_index": 0.996,
+      "least_satisfied": 0.598,
+      "utility_score": 6.943,
+      "computation_ms_median": 9.583
+    },
+    "ortools": {
+      "total_travel_km": 63.952,
+      "total_travel_min": 274.833,
+      "travel_km_per_activity": 6.008,
+      "activities": 10.333,
+      "satisfied_preferences": 7.167,
+      "constraint_violations": 0.0,
+      "fairness_index": 0.996,
+      "least_satisfied": 0.601,
+      "utility_score": 7.262,
+      "computation_ms_median": 51.237
+    },
+    "_deltas": {
+      "travel_km_reduction_pct": 60.363,
+      "travel_min_reduction_pct": 43.383,
+      "activities_delta": 0.5,
+      "utility_delta": 0.319,
+      "extra_compute_ms": 41.653
+    }
+  },
+  "repeats_per_case": 3,
+  "generated_by": "ml/experiments/planner_comparison.py"
+}

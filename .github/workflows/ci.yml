@@ -1,0 +1,171 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.12"
+  NODE_VERSION: "20"
+
+jobs:
+  # --------------------------------------------------------------------------
+  backend:
+    name: Backend (lint + types + tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -e ".[dev]"
+
+      - name: Ruff lint
+        run: ruff check .
+
+      - name: Ruff format check
+        run: ruff format --check .
+
+      - name: Type check
+        run: mypy apps/api/yatraai
+        continue-on-error: true   # advisory: strictness is being tightened incrementally
+
+      - name: Tests (offline providers, SQLite)
+        env:
+          YATRA_ENV: test
+          LLM_PROVIDER: mock
+          EMBEDDING_PROVIDER: hashing
+          WEATHER_PROVIDER: seed
+          ROUTING_PROVIDER: haversine
+          JWT_SECRET: ci-secret-value-that-is-long-enough-0123456789
+        run: pytest --cov=apps/api/yatraai --cov-report=xml --cov-report=term-missing
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-xml
+          path: coverage.xml
+          if-no-files-found: ignore
+
+  # --------------------------------------------------------------------------
+  postgres-integration:
+    name: Integration (Postgres + pgvector)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: yatra
+          POSTGRES_PASSWORD: yatra
+          POSTGRES_DB: yatraai
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U yatra -d yatraai"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+      - run: pip install -e ".[dev]"
+
+      - name: Apply migrations
+        working-directory: apps/api
+        env:
+          DATABASE_URL: postgresql+psycopg://yatra:yatra@localhost:5432/yatraai
+        run: alembic upgrade head
+
+      - name: Seed + integration tests
+        env:
+          DATABASE_URL: postgresql+psycopg://yatra:yatra@localhost:5432/yatraai
+          JWT_SECRET: ci-secret-value-that-is-long-enough-0123456789
+          LLM_PROVIDER: mock
+          EMBEDDING_PROVIDER: hashing
+          WEATHER_PROVIDER: seed
+          ROUTING_PROVIDER: haversine
+        run: |
+          python -m yatraai.cli seed --knowledge --embeddings
+          pytest -m integration --no-cov
+
+  # --------------------------------------------------------------------------
+  data-quality:
+    name: Data quality gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - name: Bronze -> Silver -> Gold
+        run: python -m yatraai.cli pipeline --all
+      - name: Seed dataset contract tests
+        run: pytest tests/data_quality -v
+
+  # --------------------------------------------------------------------------
+  frontend:
+    name: Frontend (lint + typecheck + unit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci || npm install
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test -- --run
+      - name: Production build
+        env:
+          NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+          NEXT_PUBLIC_DEMO_MODE: "true"
+        run: npm run build
+
+  # --------------------------------------------------------------------------
+  docker:
+    name: Docker image builds
+    runs-on: ubuntu-latest
+    needs: [backend]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build API image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: infra/api.Dockerfile
+          push: false
+          load: true
+          tags: yatraai-api:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Smoke test the image
+        run: |
+          docker run -d --name yatra-api -p 8000:8000 \
+            -e RUN_MIGRATIONS=1 -e RUN_SEED=1 \
+            -e JWT_SECRET=ci-secret-value-that-is-long-enough-0123456789 \
+            yatraai-api:ci
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8000/health; then echo "healthy"; exit 0; fi
+            sleep 3
+          done
+          echo "API failed to become healthy"; docker logs yatra-api; exit 1

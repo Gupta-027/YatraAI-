@@ -1,0 +1,104 @@
+name: Scheduled data pipeline
+
+# Lightweight alternative to running Airflow for the public demo. It executes the
+# exact same CLI commands the DAG calls, on a cron, at zero cost. Airflow remains
+# the right answer when you need backfills, SLAs and lineage - see
+# pipelines/airflow/README.md.
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # 03:00 UTC daily
+  workflow_dispatch:
+    inputs:
+      run_evaluations:
+        description: 'Also re-run the RAG and planner benchmarks'
+        type: boolean
+        default: false
+
+concurrency:
+  group: scheduled-pipeline
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    name: Bronze -> Silver -> Gold -> load
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[dev]"
+
+      - name: Run the medallion pipeline (strict)
+        run: python -m yatraai.cli pipeline --all --strict
+
+      - name: Data-quality contract tests
+        run: pytest tests/data_quality -q
+
+      - name: Apply migrations and reload the catalogue
+        if: ${{ secrets.DATABASE_URL != '' }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          cd apps/api && alembic upgrade head && cd ../..
+          python -m yatraai.cli seed --knowledge --embeddings
+
+      - name: Runtime data-quality gate
+        if: ${{ secrets.DATABASE_URL != '' }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python - <<'PY'
+          import json, sys
+          from yatraai.services.data_quality import run_quality_checks
+          report = run_quality_checks()
+          print(json.dumps(report, indent=2, default=str))
+          failures = [c for c in report["checks"] if c["severity"] == "error" and not c["passed"]]
+          if failures:
+              print("Data quality gate FAILED:", [f["name"] for f in failures])
+              sys.exit(1)
+          PY
+
+      - name: Re-run benchmarks
+        if: ${{ inputs.run_evaluations }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python evaluation/run_rag_eval.py
+          python ml/experiments/planner_comparison.py
+          python ml/experiments/aggregation_comparison.py
+
+      - name: Upload artefacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-output
+          path: |
+            data/gold/**
+            evaluation/reports/**
+            ml/reports/**
+          if-no-files-found: ignore
+
+  keep-warm:
+    name: Keep the free-tier API warm
+    runs-on: ubuntu-latest
+    if: ${{ vars.API_BASE_URL != '' }}
+    steps:
+      # Render's free tier sleeps after ~15 minutes idle and takes 30-50 s to wake.
+      # This does not defeat that (a cron cannot run every 15 minutes for free
+      # indefinitely) but it does guarantee the demo is warm at a predictable hour.
+      - name: Ping health endpoint
+        run: |
+          for i in 1 2 3; do
+            if curl -sf --max-time 90 "${{ vars.API_BASE_URL }}/health"; then
+              echo "API is awake"; exit 0
+            fi
+            echo "Attempt $i failed, retrying..."; sleep 20
+          done
+          echo "API did not respond - it may be cold or down"; exit 1

@@ -1,0 +1,1648 @@
+{
+  "scenarios": [
+    {
+      "scenario": "lone_nature_lover",
+      "description": "3 heritage enthusiasts + 1 nature lover. Classic majority-overrule case.",
+      "cluster": "bengaluru",
+      "members": 4,
+      "candidate_pool": 16,
+      "methods": {
+        "simple_average": {
+          "mean_satisfaction": 0.5682,
+          "least_satisfied": 0.3532,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9542,
+          "consensus": 0.751,
+          "satisfaction_spread": 0.2942,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5682,
+              "least_satisfied": 0.3532,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9542,
+              "consensus": 0.751,
+              "satisfaction_spread": 0.2942,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.5977,
+              "least_satisfied": 0.3861,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9597,
+              "consensus": 0.7551,
+              "satisfaction_spread": 0.2892,
+              "interests_covered": 0.6667
+            },
+            "12": {
+              "mean_satisfaction": 0.6282,
+              "least_satisfied": 0.5012,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9863,
+              "consensus": 0.852,
+              "satisfaction_spread": 0.1775,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.77,
+          "top_5": [
+            "lalbagh-botanical-garden",
+            "ngma-bengaluru",
+            "vitm-museum",
+            "nehru-planetarium",
+            "bull-temple"
+          ]
+        },
+        "weighted_average": {
+          "mean_satisfaction": 0.5682,
+          "least_satisfied": 0.3532,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9542,
+          "consensus": 0.751,
+          "satisfaction_spread": 0.2942,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5682,
+              "least_satisfied": 0.3532,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9542,
+              "consensus": 0.751,
+              "satisfaction_spread": 0.2942,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.5977,
+              "least_satisfied": 0.3861,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9597,
+              "consensus": 0.7551,
+              "satisfaction_spread": 0.2892,
+              "interests_covered": 0.6667
+            },
+            "12": {
+              "mean_satisfaction": 0.6282,
+              "least_satisfied": 0.5012,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9863,
+              "consensus": 0.852,
+              "satisfaction_spread": 0.1775,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.67,
+          "top_5": [
+            "lalbagh-botanical-garden",
+            "ngma-bengaluru",
+            "vitm-museum",
+            "nehru-planetarium",
+            "bull-temple"
+          ]
+        },
+        "borda_count": {
+          "mean_satisfaction": 0.5777,
+          "least_satisfied": 0.3505,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9508,
+          "consensus": 0.7371,
+          "satisfaction_spread": 0.3091,
+          "interests_covered": 0.6667,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5777,
+              "least_satisfied": 0.3505,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9508,
+              "consensus": 0.7371,
+              "satisfaction_spread": 0.3091,
+              "interests_covered": 0.6667
+            },
+            "8": {
+              "mean_satisfaction": 0.5994,
+              "least_satisfied": 0.3861,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9592,
+              "consensus": 0.7529,
+              "satisfaction_spread": 0.2926,
+              "interests_covered": 0.6667
+            },
+            "12": {
+              "mean_satisfaction": 0.6282,
+              "least_satisfied": 0.5012,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9863,
+              "consensus": 0.852,
+              "satisfaction_spread": 0.1775,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.62,
+          "top_5": [
+            "bangalore-palace",
+            "lalbagh-botanical-garden",
+            "ngma-bengaluru",
+            "iskcon-temple-bengaluru",
+            "vitm-museum"
+          ]
+        },
+        "max_min_fairness": {
+          "mean_satisfaction": 0.5519,
+          "least_satisfied": 0.5012,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9963,
+          "consensus": 0.9326,
+          "satisfaction_spread": 0.0949,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5519,
+              "least_satisfied": 0.5012,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9963,
+              "consensus": 0.9326,
+              "satisfaction_spread": 0.0949,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.5976,
+              "least_satisfied": 0.5276,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9954,
+              "consensus": 0.9189,
+              "satisfaction_spread": 0.0989,
+              "interests_covered": 0.8889
+            },
+            "12": {
+              "mean_satisfaction": 0.6389,
+              "least_satisfied": 0.5877,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9976,
+              "consensus": 0.9376,
+              "satisfaction_spread": 0.0764,
+              "interests_covered": 0.8889
+            }
+          },
+          "scoring_ms": 0.74,
+          "top_5": [
+            "lalbagh-botanical-garden",
+            "shivoham-shiva-temple",
+            "ulsoor-lake",
+            "iskcon-temple-bengaluru",
+            "bull-temple"
+          ]
+        },
+        "fairness_aware": {
+          "mean_satisfaction": 0.563,
+          "least_satisfied": 0.3687,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9616,
+          "consensus": 0.7748,
+          "satisfaction_spread": 0.2667,
+          "interests_covered": 0.6667,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.563,
+              "least_satisfied": 0.3687,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9616,
+              "consensus": 0.7748,
+              "satisfaction_spread": 0.2667,
+              "interests_covered": 0.6667
+            },
+            "8": {
+              "mean_satisfaction": 0.5929,
+              "least_satisfied": 0.413,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.97,
+              "consensus": 0.7916,
+              "satisfaction_spread": 0.2466,
+              "interests_covered": 0.6667
+            },
+            "12": {
+              "mean_satisfaction": 0.6282,
+              "least_satisfied": 0.5012,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9863,
+              "consensus": 0.852,
+              "satisfaction_spread": 0.1775,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.77,
+          "top_5": [
+            "lalbagh-botanical-garden",
+            "ngma-bengaluru",
+            "vitm-museum",
+            "shivoham-shiva-temple",
+            "nehru-planetarium"
+          ]
+        },
+        "fairness_aware_iterative": {
+          "mean_satisfaction": 0.5519,
+          "least_satisfied": 0.5012,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9963,
+          "consensus": 0.9326,
+          "satisfaction_spread": 0.0949,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5519,
+              "least_satisfied": 0.5012,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9963,
+              "consensus": 0.9326,
+              "satisfaction_spread": 0.0949,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.6237,
+              "least_satisfied": 0.5677,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9973,
+              "consensus": 0.9352,
+              "satisfaction_spread": 0.0762,
+              "interests_covered": 0.6667
+            },
+            "12": {
+              "mean_satisfaction": 0.6448,
+              "least_satisfied": 0.5677,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.995,
+              "consensus": 0.9087,
+              "satisfaction_spread": 0.111,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.93,
+          "top_5": [
+            "lalbagh-botanical-garden",
+            "ngma-bengaluru",
+            "vitm-museum",
+            "shivoham-shiva-temple",
+            "nehru-planetarium"
+          ]
+        }
+      }
+    },
+    {
+      "scenario": "two_way_split",
+      "description": "2 spiritual + 2 adventure. No majority; consensus is the challenge.",
+      "cluster": "rishikesh-haridwar",
+      "members": 4,
+      "candidate_pool": 12,
+      "methods": {
+        "simple_average": {
+          "mean_satisfaction": 0.5463,
+          "least_satisfied": 0.4909,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9902,
+          "consensus": 0.8915,
+          "satisfaction_spread": 0.1097,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5463,
+              "least_satisfied": 0.4909,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9902,
+              "consensus": 0.8915,
+              "satisfaction_spread": 0.1097,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.6031,
+              "least_satisfied": 0.5269,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9862,
+              "consensus": 0.8571,
+              "satisfaction_spread": 0.1475,
+              "interests_covered": 0.7
+            },
+            "12": {
+              "mean_satisfaction": 0.638,
+              "least_satisfied": 0.5746,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.994,
+              "consensus": 0.9007,
+              "satisfaction_spread": 0.112,
+              "interests_covered": 0.7
+            }
+          },
+          "scoring_ms": 0.52,
+          "top_5": [
+            "beatles-ashram",
+            "triveni-ghat",
+            "bharat-mandir",
+            "ram-jhula-parmarth",
+            "rajaji-national-park"
+          ]
+        },
+        "weighted_average": {
+          "mean_satisfaction": 0.5463,
+          "least_satisfied": 0.4909,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9902,
+          "consensus": 0.8915,
+          "satisfaction_spread": 0.1097,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5463,
+              "least_satisfied": 0.4909,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9902,
+              "consensus": 0.8915,
+              "satisfaction_spread": 0.1097,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.6031,
+              "least_satisfied": 0.5269,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9862,
+              "consensus": 0.8571,
+              "satisfaction_spread": 0.1475,
+              "interests_covered": 0.7
+            },
+            "12": {
+              "mean_satisfaction": 0.638,
+              "least_satisfied": 0.5746,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.994,
+              "consensus": 0.9007,
+              "satisfaction_spread": 0.112,
+              "interests_covered": 0.7
+            }
+          },
+          "scoring_ms": 0.47,
+          "top_5": [
+            "beatles-ashram",
+            "triveni-ghat",
+            "bharat-mandir",
+            "ram-jhula-parmarth",
+            "rajaji-national-park"
+          ]
+        },
+        "borda_count": {
+          "mean_satisfaction": 0.5843,
+          "least_satisfied": 0.498,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9803,
+          "consensus": 0.8345,
+          "satisfaction_spread": 0.169,
+          "interests_covered": 0.5,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5843,
+              "least_satisfied": 0.498,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9803,
+              "consensus": 0.8345,
+              "satisfaction_spread": 0.169,
+              "interests_covered": 0.5
+            },
+            "8": {
+              "mean_satisfaction": 0.6171,
+              "least_satisfied": 0.5386,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9874,
+              "consensus": 0.8605,
+              "satisfaction_spread": 0.148,
+              "interests_covered": 0.7
+            },
+            "12": {
+              "mean_satisfaction": 0.638,
+              "least_satisfied": 0.5746,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.994,
+              "consensus": 0.9007,
+              "satisfaction_spread": 0.112,
+              "interests_covered": 0.7
+            }
+          },
+          "scoring_ms": 0.45,
+          "top_5": [
+            "triveni-ghat",
+            "beatles-ashram",
+            "ram-jhula-parmarth",
+            "chandi-devi-temple",
+            "mansa-devi-temple"
+          ]
+        },
+        "max_min_fairness": {
+          "mean_satisfaction": 0.5463,
+          "least_satisfied": 0.4909,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9902,
+          "consensus": 0.8915,
+          "satisfaction_spread": 0.1097,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5463,
+              "least_satisfied": 0.4909,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9902,
+              "consensus": 0.8915,
+              "satisfaction_spread": 0.1097,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.6031,
+              "least_satisfied": 0.5269,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9862,
+              "consensus": 0.8571,
+              "satisfaction_spread": 0.1475,
+              "interests_covered": 0.7
+            },
+            "12": {
+              "mean_satisfaction": 0.638,
+              "least_satisfied": 0.5746,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.994,
+              "consensus": 0.9007,
+              "satisfaction_spread": 0.112,
+              "interests_covered": 0.7
+            }
+          },
+          "scoring_ms": 1.16,
+          "top_5": [
+            "beatles-ashram",
+            "bharat-mandir",
+            "rajaji-national-park",
+            "triveni-ghat",
+            "ram-jhula-parmarth"
+          ]
+        },
+        "fairness_aware": {
+          "mean_satisfaction": 0.5463,
+          "least_satisfied": 0.4909,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9902,
+          "consensus": 0.8915,
+          "satisfaction_spread": 0.1097,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5463,
+              "least_satisfied": 0.4909,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9902,
+              "consensus": 0.8915,
+              "satisfaction_spread": 0.1097,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.6031,
+              "least_satisfied": 0.5269,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9862,
+              "consensus": 0.8571,
+              "satisfaction_spread": 0.1475,
+              "interests_covered": 0.7
+            },
+            "12": {
+              "mean_satisfaction": 0.638,
+              "least_satisfied": 0.5746,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.994,
+              "consensus": 0.9007,
+              "satisfaction_spread": 0.112,
+              "interests_covered": 0.7
+            }
+          },
+          "scoring_ms": 0.88,
+          "top_5": [
+            "beatles-ashram",
+            "bharat-mandir",
+            "triveni-ghat",
+            "ram-jhula-parmarth",
+            "rajaji-national-park"
+          ]
+        },
+        "fairness_aware_iterative": {
+          "mean_satisfaction": 0.5463,
+          "least_satisfied": 0.4909,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.9902,
+          "consensus": 0.8915,
+          "satisfaction_spread": 0.1097,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5463,
+              "least_satisfied": 0.4909,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9902,
+              "consensus": 0.8915,
+              "satisfaction_spread": 0.1097,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.6171,
+              "least_satisfied": 0.5386,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9874,
+              "consensus": 0.8605,
+              "satisfaction_spread": 0.148,
+              "interests_covered": 0.7
+            },
+            "12": {
+              "mean_satisfaction": 0.638,
+              "least_satisfied": 0.5746,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.994,
+              "consensus": 0.9007,
+              "satisfaction_spread": 0.112,
+              "interests_covered": 0.7
+            }
+          },
+          "scoring_ms": 0.52,
+          "top_5": [
+            "beatles-ashram",
+            "bharat-mandir",
+            "triveni-ghat",
+            "ram-jhula-parmarth",
+            "rajaji-national-park"
+          ]
+        }
+      }
+    },
+    {
+      "scenario": "multi_generational",
+      "description": "Seniors, parents and a child. Accessibility and pace conflict with interests.",
+      "cluster": "delhi-agra",
+      "members": 4,
+      "candidate_pool": 14,
+      "methods": {
+        "simple_average": {
+          "mean_satisfaction": 0.6063,
+          "least_satisfied": 0.5282,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.991,
+          "consensus": 0.8843,
+          "satisfaction_spread": 0.1383,
+          "interests_covered": 0.6,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6063,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.991,
+              "consensus": 0.8843,
+              "satisfaction_spread": 0.1383,
+              "interests_covered": 0.6
+            },
+            "8": {
+              "mean_satisfaction": 0.6166,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9885,
+              "consensus": 0.8669,
+              "satisfaction_spread": 0.1551,
+              "interests_covered": 0.6
+            },
+            "12": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.69,
+          "top_5": [
+            "raj-ghat",
+            "national-museum-delhi",
+            "humayuns-tomb",
+            "jama-masjid-delhi",
+            "mehtab-bagh"
+          ]
+        },
+        "weighted_average": {
+          "mean_satisfaction": 0.6063,
+          "least_satisfied": 0.5282,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.991,
+          "consensus": 0.8843,
+          "satisfaction_spread": 0.1383,
+          "interests_covered": 0.6,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6063,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.991,
+              "consensus": 0.8843,
+              "satisfaction_spread": 0.1383,
+              "interests_covered": 0.6
+            },
+            "8": {
+              "mean_satisfaction": 0.6166,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9885,
+              "consensus": 0.8669,
+              "satisfaction_spread": 0.1551,
+              "interests_covered": 0.6
+            },
+            "12": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.57,
+          "top_5": [
+            "raj-ghat",
+            "national-museum-delhi",
+            "humayuns-tomb",
+            "jama-masjid-delhi",
+            "mehtab-bagh"
+          ]
+        },
+        "borda_count": {
+          "mean_satisfaction": 0.6063,
+          "least_satisfied": 0.5282,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.991,
+          "consensus": 0.8843,
+          "satisfaction_spread": 0.1383,
+          "interests_covered": 0.6,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6063,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.991,
+              "consensus": 0.8843,
+              "satisfaction_spread": 0.1383,
+              "interests_covered": 0.6
+            },
+            "8": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.54,
+          "top_5": [
+            "jama-masjid-delhi",
+            "raj-ghat",
+            "humayuns-tomb",
+            "national-museum-delhi",
+            "mehtab-bagh"
+          ]
+        },
+        "max_min_fairness": {
+          "mean_satisfaction": 0.6063,
+          "least_satisfied": 0.5282,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.991,
+          "consensus": 0.8843,
+          "satisfaction_spread": 0.1383,
+          "interests_covered": 0.6,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6063,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.991,
+              "consensus": 0.8843,
+              "satisfaction_spread": 0.1383,
+              "interests_covered": 0.6
+            },
+            "8": {
+              "mean_satisfaction": 0.6166,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9885,
+              "consensus": 0.8669,
+              "satisfaction_spread": 0.1551,
+              "interests_covered": 0.6
+            },
+            "12": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.52,
+          "top_5": [
+            "national-museum-delhi",
+            "raj-ghat",
+            "humayuns-tomb",
+            "mehtab-bagh",
+            "jama-masjid-delhi"
+          ]
+        },
+        "fairness_aware": {
+          "mean_satisfaction": 0.6063,
+          "least_satisfied": 0.5282,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.991,
+          "consensus": 0.8843,
+          "satisfaction_spread": 0.1383,
+          "interests_covered": 0.6,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6063,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.991,
+              "consensus": 0.8843,
+              "satisfaction_spread": 0.1383,
+              "interests_covered": 0.6
+            },
+            "8": {
+              "mean_satisfaction": 0.6166,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9885,
+              "consensus": 0.8669,
+              "satisfaction_spread": 0.1551,
+              "interests_covered": 0.6
+            },
+            "12": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.57,
+          "top_5": [
+            "national-museum-delhi",
+            "raj-ghat",
+            "humayuns-tomb",
+            "mehtab-bagh",
+            "jama-masjid-delhi"
+          ]
+        },
+        "fairness_aware_iterative": {
+          "mean_satisfaction": 0.6063,
+          "least_satisfied": 0.5282,
+          "least_satisfied_member": "d",
+          "fairness_index": 0.991,
+          "consensus": 0.8843,
+          "satisfaction_spread": 0.1383,
+          "interests_covered": 0.6,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6063,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.991,
+              "consensus": 0.8843,
+              "satisfaction_spread": 0.1383,
+              "interests_covered": 0.6
+            },
+            "8": {
+              "mean_satisfaction": 0.6166,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9885,
+              "consensus": 0.8669,
+              "satisfaction_spread": 0.1551,
+              "interests_covered": 0.6
+            },
+            "12": {
+              "mean_satisfaction": 0.6287,
+              "least_satisfied": 0.5282,
+              "least_satisfied_member": "d",
+              "fairness_index": 0.9897,
+              "consensus": 0.8718,
+              "satisfaction_spread": 0.1574,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.69,
+          "top_5": [
+            "national-museum-delhi",
+            "raj-ghat",
+            "humayuns-tomb",
+            "mehtab-bagh",
+            "jama-masjid-delhi"
+          ]
+        }
+      }
+    },
+    {
+      "scenario": "unanimous_group",
+      "description": "Control: everyone wants the same thing. All methods should agree.",
+      "cluster": "hyderabad",
+      "members": 3,
+      "candidate_pool": 14,
+      "methods": {
+        "simple_average": {
+          "mean_satisfaction": 0.7126,
+          "least_satisfied": 0.7126,
+          "least_satisfied_member": "a",
+          "fairness_index": 1.0,
+          "consensus": 1.0,
+          "satisfaction_spread": 0.0,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.64,
+          "top_5": [
+            "salar-jung-museum",
+            "chowmahalla-palace",
+            "shilparamam",
+            "qutb-shahi-tombs",
+            "taramati-baradari"
+          ]
+        },
+        "weighted_average": {
+          "mean_satisfaction": 0.7126,
+          "least_satisfied": 0.7126,
+          "least_satisfied_member": "a",
+          "fairness_index": 1.0,
+          "consensus": 1.0,
+          "satisfaction_spread": 0.0,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.53,
+          "top_5": [
+            "salar-jung-museum",
+            "chowmahalla-palace",
+            "shilparamam",
+            "qutb-shahi-tombs",
+            "taramati-baradari"
+          ]
+        },
+        "borda_count": {
+          "mean_satisfaction": 0.7126,
+          "least_satisfied": 0.7126,
+          "least_satisfied_member": "a",
+          "fairness_index": 1.0,
+          "consensus": 1.0,
+          "satisfaction_spread": 0.0,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.47,
+          "top_5": [
+            "salar-jung-museum",
+            "shilparamam",
+            "chowmahalla-palace",
+            "taramati-baradari",
+            "qutb-shahi-tombs"
+          ]
+        },
+        "max_min_fairness": {
+          "mean_satisfaction": 0.7126,
+          "least_satisfied": 0.7126,
+          "least_satisfied_member": "a",
+          "fairness_index": 1.0,
+          "consensus": 1.0,
+          "satisfaction_spread": 0.0,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.5,
+          "top_5": [
+            "salar-jung-museum",
+            "chowmahalla-palace",
+            "shilparamam",
+            "qutb-shahi-tombs",
+            "taramati-baradari"
+          ]
+        },
+        "fairness_aware": {
+          "mean_satisfaction": 0.7126,
+          "least_satisfied": 0.7126,
+          "least_satisfied_member": "a",
+          "fairness_index": 1.0,
+          "consensus": 1.0,
+          "satisfaction_spread": 0.0,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.51,
+          "top_5": [
+            "salar-jung-museum",
+            "chowmahalla-palace",
+            "shilparamam",
+            "qutb-shahi-tombs",
+            "taramati-baradari"
+          ]
+        },
+        "fairness_aware_iterative": {
+          "mean_satisfaction": 0.7126,
+          "least_satisfied": 0.7126,
+          "least_satisfied_member": "a",
+          "fairness_index": 1.0,
+          "consensus": 1.0,
+          "satisfaction_spread": 0.0,
+          "interests_covered": 0.7,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.7
+            },
+            "8": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            },
+            "12": {
+              "mean_satisfaction": 0.7126,
+              "least_satisfied": 0.7126,
+              "least_satisfied_member": "a",
+              "fairness_index": 1.0,
+              "consensus": 1.0,
+              "satisfaction_spread": 0.0,
+              "interests_covered": 0.8
+            }
+          },
+          "scoring_ms": 0.53,
+          "top_5": [
+            "salar-jung-museum",
+            "chowmahalla-palace",
+            "shilparamam",
+            "qutb-shahi-tombs",
+            "taramati-baradari"
+          ]
+        }
+      }
+    },
+    {
+      "scenario": "one_against_five",
+      "description": "5 vs 1. The hardest fairness case in the set.",
+      "cluster": "puri-konark",
+      "members": 6,
+      "candidate_pool": 13,
+      "methods": {
+        "simple_average": {
+          "mean_satisfaction": 0.5864,
+          "least_satisfied": 0.3216,
+          "least_satisfied_member": "solo",
+          "fairness_index": 0.9608,
+          "consensus": 0.7632,
+          "satisfaction_spread": 0.3177,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5864,
+              "least_satisfied": 0.3216,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9608,
+              "consensus": 0.7632,
+              "satisfaction_spread": 0.3177,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.6261,
+              "least_satisfied": 0.4183,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9784,
+              "consensus": 0.8141,
+              "satisfaction_spread": 0.2494,
+              "interests_covered": 0.5556
+            },
+            "12": {
+              "mean_satisfaction": 0.6541,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9882,
+              "consensus": 0.857,
+              "satisfaction_spread": 0.1919,
+              "interests_covered": 0.5556
+            }
+          },
+          "scoring_ms": 0.7,
+          "top_5": [
+            "swargadwar-beach",
+            "gundicha-temple",
+            "mukteshwar-temple",
+            "rajarani-temple",
+            "konark-museum"
+          ]
+        },
+        "weighted_average": {
+          "mean_satisfaction": 0.5864,
+          "least_satisfied": 0.3216,
+          "least_satisfied_member": "solo",
+          "fairness_index": 0.9608,
+          "consensus": 0.7632,
+          "satisfaction_spread": 0.3177,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5864,
+              "least_satisfied": 0.3216,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9608,
+              "consensus": 0.7632,
+              "satisfaction_spread": 0.3177,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.6261,
+              "least_satisfied": 0.4183,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9784,
+              "consensus": 0.8141,
+              "satisfaction_spread": 0.2494,
+              "interests_covered": 0.5556
+            },
+            "12": {
+              "mean_satisfaction": 0.6541,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9882,
+              "consensus": 0.857,
+              "satisfaction_spread": 0.1919,
+              "interests_covered": 0.5556
+            }
+          },
+          "scoring_ms": 0.63,
+          "top_5": [
+            "swargadwar-beach",
+            "gundicha-temple",
+            "mukteshwar-temple",
+            "rajarani-temple",
+            "konark-museum"
+          ]
+        },
+        "borda_count": {
+          "mean_satisfaction": 0.6065,
+          "least_satisfied": 0.301,
+          "least_satisfied_member": "solo",
+          "fairness_index": 0.9517,
+          "consensus": 0.7267,
+          "satisfaction_spread": 0.3667,
+          "interests_covered": 0.4444,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.6065,
+              "least_satisfied": 0.301,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9517,
+              "consensus": 0.7267,
+              "satisfaction_spread": 0.3667,
+              "interests_covered": 0.4444
+            },
+            "8": {
+              "mean_satisfaction": 0.6253,
+              "least_satisfied": 0.3216,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.955,
+              "consensus": 0.7284,
+              "satisfaction_spread": 0.3644,
+              "interests_covered": 0.5556
+            },
+            "12": {
+              "mean_satisfaction": 0.6541,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9882,
+              "consensus": 0.857,
+              "satisfaction_spread": 0.1919,
+              "interests_covered": 0.5556
+            }
+          },
+          "scoring_ms": 0.59,
+          "top_5": [
+            "gundicha-temple",
+            "mukteshwar-temple",
+            "rajarani-temple",
+            "konark-sun-temple",
+            "swargadwar-beach"
+          ]
+        },
+        "max_min_fairness": {
+          "mean_satisfaction": 0.4929,
+          "least_satisfied": 0.4926,
+          "least_satisfied_member": "m0",
+          "fairness_index": 1.0,
+          "consensus": 0.9988,
+          "satisfaction_spread": 0.0016,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.4929,
+              "least_satisfied": 0.4926,
+              "least_satisfied_member": "m0",
+              "fairness_index": 1.0,
+              "consensus": 0.9988,
+              "satisfaction_spread": 0.0016,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.6151,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9923,
+              "consensus": 0.8918,
+              "satisfaction_spread": 0.1451,
+              "interests_covered": 0.5556
+            },
+            "12": {
+              "mean_satisfaction": 0.6693,
+              "least_satisfied": 0.5854,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9969,
+              "consensus": 0.925,
+              "satisfaction_spread": 0.1007,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.69,
+          "top_5": [
+            "swargadwar-beach",
+            "chandrabhaga-beach",
+            "puri-beach",
+            "konark-museum",
+            "odisha-state-museum"
+          ]
+        },
+        "fairness_aware": {
+          "mean_satisfaction": 0.5864,
+          "least_satisfied": 0.3216,
+          "least_satisfied_member": "solo",
+          "fairness_index": 0.9608,
+          "consensus": 0.7632,
+          "satisfaction_spread": 0.3177,
+          "interests_covered": 0.5556,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5864,
+              "least_satisfied": 0.3216,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9608,
+              "consensus": 0.7632,
+              "satisfaction_spread": 0.3177,
+              "interests_covered": 0.5556
+            },
+            "8": {
+              "mean_satisfaction": 0.6151,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9923,
+              "consensus": 0.8918,
+              "satisfaction_spread": 0.1451,
+              "interests_covered": 0.5556
+            },
+            "12": {
+              "mean_satisfaction": 0.6541,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9882,
+              "consensus": 0.857,
+              "satisfaction_spread": 0.1919,
+              "interests_covered": 0.5556
+            }
+          },
+          "scoring_ms": 0.76,
+          "top_5": [
+            "swargadwar-beach",
+            "gundicha-temple",
+            "mukteshwar-temple",
+            "konark-museum",
+            "rajarani-temple"
+          ]
+        },
+        "fairness_aware_iterative": {
+          "mean_satisfaction": 0.5699,
+          "least_satisfied": 0.3769,
+          "least_satisfied_member": "solo",
+          "fairness_index": 0.9776,
+          "consensus": 0.8274,
+          "satisfaction_spread": 0.2315,
+          "interests_covered": 0.4444,
+          "by_k": {
+            "5": {
+              "mean_satisfaction": 0.5699,
+              "least_satisfied": 0.3769,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9776,
+              "consensus": 0.8274,
+              "satisfaction_spread": 0.2315,
+              "interests_covered": 0.4444
+            },
+            "8": {
+              "mean_satisfaction": 0.6151,
+              "least_satisfied": 0.4942,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9923,
+              "consensus": 0.8918,
+              "satisfaction_spread": 0.1451,
+              "interests_covered": 0.5556
+            },
+            "12": {
+              "mean_satisfaction": 0.6693,
+              "least_satisfied": 0.5854,
+              "least_satisfied_member": "solo",
+              "fairness_index": 0.9969,
+              "consensus": 0.925,
+              "satisfaction_spread": 0.1007,
+              "interests_covered": 0.6667
+            }
+          },
+          "scoring_ms": 0.97,
+          "top_5": [
+            "swargadwar-beach",
+            "gundicha-temple",
+            "mukteshwar-temple",
+            "konark-museum",
+            "rajarani-temple"
+          ]
+        }
+      }
+    }
+  ],
+  "generated_by": "ml/experiments/aggregation_comparison.py",
+  "summary": {
+    "simple_average": {
+      "mean_satisfaction": 0.604,
+      "least_satisfied": 0.4813,
+      "fairness_index": 0.9792,
+      "consensus": 0.858,
+      "satisfaction_spread": 0.172,
+      "interests_covered": 0.6222,
+      "scoring_ms": 0.664,
+      "by_k": {
+        "5": {
+          "mean_satisfaction": 0.604,
+          "least_satisfied": 0.4813,
+          "fairness_index": 0.9792,
+          "consensus": 0.858,
+          "satisfaction_spread": 0.172,
+          "interests_covered": 0.6222
+        },
+        "8": {
+          "mean_satisfaction": 0.6312,
+          "least_satisfied": 0.5144,
+          "fairness_index": 0.9826,
+          "consensus": 0.8586,
+          "satisfaction_spread": 0.1682,
+          "interests_covered": 0.6645
+        },
+        "12": {
+          "mean_satisfaction": 0.6523,
+          "least_satisfied": 0.5622,
+          "fairness_index": 0.9916,
+          "consensus": 0.8963,
+          "satisfaction_spread": 0.1278,
+          "interests_covered": 0.7045
+        }
+      }
+    },
+    "weighted_average": {
+      "mean_satisfaction": 0.604,
+      "least_satisfied": 0.4813,
+      "fairness_index": 0.9792,
+      "consensus": 0.858,
+      "satisfaction_spread": 0.172,
+      "interests_covered": 0.6222,
+      "scoring_ms": 0.574,
+      "by_k": {
+        "5": {
+          "mean_satisfaction": 0.604,
+          "least_satisfied": 0.4813,
+          "fairness_index": 0.9792,
+          "consensus": 0.858,
+          "satisfaction_spread": 0.172,
+          "interests_covered": 0.6222
+        },
+        "8": {
+          "mean_satisfaction": 0.6312,
+          "least_satisfied": 0.5144,
+          "fairness_index": 0.9826,
+          "consensus": 0.8586,
+          "satisfaction_spread": 0.1682,
+          "interests_covered": 0.6645
+        },
+        "12": {
+          "mean_satisfaction": 0.6523,
+          "least_satisfied": 0.5622,
+          "fairness_index": 0.9916,
+          "consensus": 0.8963,
+          "satisfaction_spread": 0.1278,
+          "interests_covered": 0.7045
+        }
+      }
+    },
+    "borda_count": {
+      "mean_satisfaction": 0.6175,
+      "least_satisfied": 0.4781,
+      "fairness_index": 0.9748,
+      "consensus": 0.8365,
+      "satisfaction_spread": 0.1966,
+      "interests_covered": 0.5822,
+      "scoring_ms": 0.534,
+      "by_k": {
+        "5": {
+          "mean_satisfaction": 0.6175,
+          "least_satisfied": 0.4781,
+          "fairness_index": 0.9748,
+          "consensus": 0.8365,
+          "satisfaction_spread": 0.1966,
+          "interests_covered": 0.5822
+        },
+        "8": {
+          "mean_satisfaction": 0.6366,
+          "least_satisfied": 0.4974,
+          "fairness_index": 0.9783,
+          "consensus": 0.8427,
+          "satisfaction_spread": 0.1925,
+          "interests_covered": 0.7045
+        },
+        "12": {
+          "mean_satisfaction": 0.6523,
+          "least_satisfied": 0.5622,
+          "fairness_index": 0.9916,
+          "consensus": 0.8963,
+          "satisfaction_spread": 0.1278,
+          "interests_covered": 0.7045
+        }
+      }
+    },
+    "max_min_fairness": {
+      "mean_satisfaction": 0.582,
+      "least_satisfied": 0.5451,
+      "fairness_index": 0.9955,
+      "consensus": 0.9414,
+      "satisfaction_spread": 0.0689,
+      "interests_covered": 0.6222,
+      "scoring_ms": 0.722,
+      "by_k": {
+        "5": {
+          "mean_satisfaction": 0.582,
+          "least_satisfied": 0.5451,
+          "fairness_index": 0.9955,
+          "consensus": 0.9414,
+          "satisfaction_spread": 0.0689,
+          "interests_covered": 0.6222
+        },
+        "8": {
+          "mean_satisfaction": 0.629,
+          "least_satisfied": 0.5579,
+          "fairness_index": 0.9925,
+          "consensus": 0.9069,
+          "satisfaction_spread": 0.1093,
+          "interests_covered": 0.7089
+        },
+        "12": {
+          "mean_satisfaction": 0.6575,
+          "least_satisfied": 0.5977,
+          "fairness_index": 0.9956,
+          "consensus": 0.927,
+          "satisfaction_spread": 0.0893,
+          "interests_covered": 0.7711
+        }
+      }
+    },
+    "fairness_aware": {
+      "mean_satisfaction": 0.6029,
+      "least_satisfied": 0.4844,
+      "fairness_index": 0.9807,
+      "consensus": 0.8628,
+      "satisfaction_spread": 0.1665,
+      "interests_covered": 0.6445,
+      "scoring_ms": 0.698,
+      "by_k": {
+        "5": {
+          "mean_satisfaction": 0.6029,
+          "least_satisfied": 0.4844,
+          "fairness_index": 0.9807,
+          "consensus": 0.8628,
+          "satisfaction_spread": 0.1665,
+          "interests_covered": 0.6445
+        },
+        "8": {
+          "mean_satisfaction": 0.6281,
+          "least_satisfied": 0.535,
+          "fairness_index": 0.9874,
+          "consensus": 0.8815,
+          "satisfaction_spread": 0.1389,
+          "interests_covered": 0.6645
+        },
+        "12": {
+          "mean_satisfaction": 0.6523,
+          "least_satisfied": 0.5622,
+          "fairness_index": 0.9916,
+          "consensus": 0.8963,
+          "satisfaction_spread": 0.1278,
+          "interests_covered": 0.7045
+        }
+      }
+    },
+    "fairness_aware_iterative": {
+      "mean_satisfaction": 0.5974,
+      "least_satisfied": 0.522,
+      "fairness_index": 0.991,
+      "consensus": 0.9072,
+      "satisfaction_spread": 0.1149,
+      "interests_covered": 0.6,
+      "scoring_ms": 0.728,
+      "by_k": {
+        "5": {
+          "mean_satisfaction": 0.5974,
+          "least_satisfied": 0.522,
+          "fairness_index": 0.991,
+          "consensus": 0.9072,
+          "satisfaction_spread": 0.1149,
+          "interests_covered": 0.6
+        },
+        "8": {
+          "mean_satisfaction": 0.637,
+          "least_satisfied": 0.5683,
+          "fairness_index": 0.9931,
+          "consensus": 0.9109,
+          "satisfaction_spread": 0.1049,
+          "interests_covered": 0.6645
+        },
+        "12": {
+          "mean_satisfaction": 0.6587,
+          "least_satisfied": 0.5937,
+          "fairness_index": 0.9951,
+          "consensus": 0.9212,
+          "satisfaction_spread": 0.0962,
+          "interests_covered": 0.7267
+        }
+      }
+    }
+  },
+  "headline_k": 5,
+  "selection_sizes": [
+    5,
+    8,
+    12
+  ]
+}

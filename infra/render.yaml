@@ -1,0 +1,64 @@
+# Render blueprint for the YatraAI API.
+#
+# Why Render: as of 2026 it is the only one of Render / Railway / Fly.io that still
+# offers a genuine no-credit-card free tier for a Python web service. Railway now
+# gives a one-off $5 trial credit and Fly.io requires a card. Verify current terms
+# before relying on this - free tiers change, and docs/deployment.md explains how.
+#
+# Known free-tier trade-off: the service spins down after ~15 minutes idle and takes
+# 30-50 s to wake. Cold-start handling is documented in docs/deployment.md.
+
+services:
+  - type: web
+    name: yatraai-api
+    runtime: python
+    plan: free
+    region: singapore # closest region to the Indian destinations this app covers
+    branch: main
+    rootDir: .
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -e .
+    startCommand: |
+      cd apps/api && alembic upgrade head && cd ../.. &&
+      python -m yatraai.cli seed --knowledge --embeddings &&
+      uvicorn yatraai.main:app --host 0.0.0.0 --port $PORT --app-dir apps/api
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: YATRA_ENV
+        value: production
+      - key: YATRA_LOG_JSON
+        value: "true"
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+
+      # ---- required secrets: set these in the Render dashboard ----
+      - key: JWT_SECRET
+        generateValue: true # Render generates a strong value on first deploy
+      - key: DATABASE_URL
+        sync: false # paste the Supabase pooled connection string
+      - key: CORS_ORIGINS
+        sync: false # e.g. https://yatraai.vercel.app
+
+      # ---- optional: leave unset to run fully offline-capable ----
+      - key: LLM_PROVIDER
+        value: mock
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SUPABASE_JWT_SECRET
+        sync: false
+
+      # ---- providers with documented fallbacks ----
+      - key: EMBEDDING_PROVIDER
+        value: hashing
+      - key: WEATHER_PROVIDER
+        value: open-meteo
+      - key: ROUTING_PROVIDER
+        value: haversine
+      - key: RATE_LIMIT_AI_PER_MINUTE
+        value: "10"
+      - key: ORTOOLS_TIME_LIMIT_SECONDS
+        value: "8"
