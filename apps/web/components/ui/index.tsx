@@ -37,7 +37,7 @@ const BUTTON_VARIANTS: Record<ButtonVariant, string> = {
   accent:
     'bg-saffron-400 text-white hover:bg-saffron-500 active:bg-saffron-600 border border-saffron-400',
   secondary:
-    'bg-transparent text-indigo-600 dark:text-indigo-200 border border-[rgb(var(--line))] hover:bg-sand-200/70 dark:hover:bg-white/5',
+    'bg-[rgb(var(--surface))] text-indigo-600 dark:text-indigo-200 border border-[rgb(var(--line))] hover:bg-sand-200 dark:hover:bg-white/10',
   ghost:
     'bg-transparent text-ink dark:text-sand-100 border border-transparent hover:bg-sand-200/70 dark:hover:bg-white/5',
   danger: 'bg-clay-500 text-white hover:bg-clay-600 border border-clay-500',

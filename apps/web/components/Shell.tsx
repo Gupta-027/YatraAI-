@@ -11,18 +11,9 @@ import { cn } from '@/lib/utils';
 
 import { Avatar, Badge, Button, NavLink } from './ui';
 
-/**
- * Two items, because the demo is one path: plan a trip, read the itinerary.
- *
- * Destinations, the assistant and metrics all still exist and are all still
- * reachable — from the landing page, from inside a place drawer, and from the
- * footer respectively. They are not in the top bar because putting five
- * destinations in front of someone evaluating this project buries the one flow
- * that shows what it actually does.
- */
 const NAV = [
-  { href: '/plan', label: 'Plan a trip' },
-  { href: '/trips', label: 'Trips' },
+  { href: '/destinations', label: 'Destinations' },
+  { href: '/trips', label: 'My trips' },
 ];
 
 /**
@@ -47,7 +38,7 @@ export function ServiceBanner() {
       role="status"
       className="border-b border-saffron-200 bg-saffron-50 dark:border-saffron-400/30 dark:bg-saffron-400/10"
     >
-      <div className="mx-auto flex max-w-7xl items-start gap-3 px-4 py-2.5 sm:px-6">
+      <div className="mx-auto flex max-w-6xl items-start gap-3 px-4 py-2.5 sm:px-6">
         <Badge tone="saffron" className="mt-0.5 shrink-0">
           Using fallback data
         </Badge>
@@ -88,9 +79,9 @@ function ThemeToggle() {
         localStorage.setItem('yatraai.theme', next ? 'dark' : 'light');
       }}
       aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
-      className="rounded-lg border border-[rgb(var(--line))] px-2.5 py-2 text-xs font-semibold text-ink-muted hover:bg-sand-200/70 dark:text-sand-300 dark:hover:bg-white/5"
+      className="grid h-9 w-9 place-items-center rounded-full text-base text-ink-muted hover:bg-sand-200/70 dark:text-sand-300 dark:hover:bg-white/5"
     >
-      {dark ? 'Light' : 'Dark'}
+      <span aria-hidden="true">{dark ? '☀' : '☾'}</span>
     </button>
   );
 }
@@ -101,14 +92,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[rgb(var(--line))] bg-[rgb(var(--surface))]/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-[rgb(var(--line))] bg-[rgb(var(--surface))]/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <span
             aria-hidden="true"
-            className="grid h-9 w-9 place-items-center rounded-xl bg-indigo-600 font-display text-lg font-bold text-white"
+            className="grid h-8 w-8 place-items-center rounded-full bg-saffron-400 text-base font-bold text-white"
           >
-            Y
+            ✈
           </span>
           <span className="font-display text-lg font-semibold tracking-tight text-ink dark:text-sand-100">
             YatraAI
@@ -127,7 +118,6 @@ export function Header() {
           <ThemeToggle />
           {loading ? null : user ? (
             <div className="flex items-center gap-2">
-              {user.is_demo && <Badge tone="saffron">Demo</Badge>}
               <span className="flex items-center gap-2 px-2 py-1">
                 <Avatar name={user.display_name} size={28} />
                 <span className="hidden text-sm font-medium text-ink dark:text-sand-200 sm:inline">
@@ -187,26 +177,10 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-[rgb(var(--line))] bg-[rgb(var(--surface-2))]">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-2 px-4 py-5 text-xs text-ink-muted sm:px-6 dark:text-sand-400">
-        <span className="font-display text-sm text-ink dark:text-sand-100">YatraAI</span>
-        {/* Out of the top bar, still one click away. */}
-        <Link href="/destinations" className="hover:underline">
-          Destinations
-        </Link>
-        <Link href="/assistant" className="hover:underline">
-          Assistant
-        </Link>
-        <Link href="/analytics" className="hover:underline">
-          Metrics
-        </Link>
-        <Link href="/admin" className="hover:underline">
-          Data quality
-        </Link>
-        <span className="text-ink-faint">
-          Hours and fees are <strong>unverified</strong> · SOS is a <strong>demo</strong> and
-          contacts nobody · demo data is synthetic
-        </span>
+    <footer className="mt-16 border-t border-[rgb(var(--line))]">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ink-faint sm:px-6">
+        <span>© YatraAI · Simple group itineraries for India</span>
+        <span>Opening hours and fees may change, check before you go.</span>
       </div>
     </footer>
   );
@@ -226,7 +200,7 @@ export function PageShell({
       </a>
       <ServiceBanner />
       <Header />
-      <main id="main" className={cn('mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6', className)}>
+      <main id="main" className={cn('mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6', className)}>
         {children}
       </main>
       <Footer />

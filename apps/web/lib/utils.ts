@@ -167,3 +167,28 @@ export function weatherIcon(condition?: string): string {
   if (condition.includes('hot')) return 'Hot';
   return 'Clear';
 }
+
+/**
+ * Wikimedia Commons photos (freely licensed) per destination, until the API
+ * carries its own `hero_image_url`. Special:FilePath resizes server-side.
+ */
+const DESTINATION_PHOTOS: Record<string, string> = {
+  bengaluru: 'Vidhana_Soudha_2012.jpg',
+  'delhi-agra': 'Taj_Mahal_(Edited).jpeg',
+  gangtok: 'Kangch-Goechala.jpg',
+  hyderabad: 'Charminar_Hyderabad_1.jpg',
+  kedarnath: 'Kedarnath_Temple_in_Rainy_season.jpg',
+  'meghalaya-jaintia-dawki': 'Umngot_river,_Dawki.jpg',
+  'puri-konark': 'Konarka_Temple.jpg',
+  'rishikesh-haridwar': 'Rishikesh-Lakshman_Jhula_by_Kaustubh_Nayyar.jpg',
+  'shillong-cherrapunji': 'NohKaLikai_Falls_V2_Wiki.jpg',
+  varanasi: 'Dasaswamedh_ghat-varanasi_india-andres_larin.jpg',
+};
+
+export function destinationImage(slug: string, width = 800, fallback?: string | null): string {
+  const file = DESTINATION_PHOTOS[slug] ?? DESTINATION_PHOTOS['delhi-agra'];
+  return (
+    fallback ||
+    `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`
+  );
+}

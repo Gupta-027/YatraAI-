@@ -19,7 +19,7 @@ import {
 } from '@/components/ui';
 import { api } from '@/lib/api';
 import { useRequireAuth } from '@/lib/auth';
-import { formatDate, titleise } from '@/lib/utils';
+import { destinationImage, formatDate, titleise } from '@/lib/utils';
 
 export default function TripsPage() {
   const { loading: authLoading } = useRequireAuth();
@@ -107,9 +107,17 @@ export default function TripsPage() {
       <div className="grid gap-4 sm:grid-cols-2">
         {trips.data?.map((trip) => (
           <Link key={trip.id} href={`/trips/${trip.id}`} className="group">
-            <Card className="h-full p-5 transition-shadow hover:shadow-lift">
+            <Card className="h-full overflow-hidden transition-shadow hover:shadow-lift">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={destinationImage(trip.cluster_slug, 800)}
+                alt=""
+                loading="lazy"
+                className="h-40 w-full object-cover"
+              />
+              <div className="p-5">
               <div className="mb-2 flex items-start justify-between gap-2">
-                <h2 className="font-display text-lg text-ink group-hover:text-indigo-600 dark:text-sand-100">
+                <h2 className="font-display text-lg text-ink group-hover:text-saffron-500 dark:text-sand-100">
                   {trip.title}
                 </h2>
                 <Badge tone={trip.has_itinerary ? 'teal' : 'saffron'}>
@@ -135,6 +143,7 @@ export default function TripsPage() {
                 <span className="text-xs text-ink-faint">
                   {trip.preferences_submitted}/{trip.members.length} preferences in
                 </span>
+              </div>
               </div>
             </Card>
           </Link>

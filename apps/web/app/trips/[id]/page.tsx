@@ -6,23 +6,20 @@ import { useParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 
 import { DayTimeline, ItinerarySummary } from '@/components/Itinerary';
-import { SolverTrace } from '@/components/Pipeline';
 import { PlaceDrawer } from '@/components/PlaceDrawer';
 import { PageShell } from '@/components/Shell';
 import {
-  Badge,
   Button,
   Callout,
   Card,
   CardSkeleton,
   EmptyState,
   ErrorState,
-  SectionHeading,
   Skeleton,
 } from '@/components/ui';
 import { ApiRequestError, api } from '@/lib/api';
 import { useRequireAuth } from '@/lib/auth';
-import { durationLabel, formatDate, percent, rupees, titleise } from '@/lib/utils';
+import { destinationImage, durationLabel, formatDate, percent, rupees, titleise } from '@/lib/utils';
 
 const QUICK_ACTIONS = [
   { action: 'make_day_relaxed', label: 'Make it relaxed', hint: 'Fewer stops, longer breaks' },
@@ -96,42 +93,39 @@ export default function TripPage() {
 
   return (
     <PageShell>
-      <div className="mb-2">
-        <Link href="/trips" className="text-sm text-ink-muted hover:underline dark:text-sand-400">
-          ← All trips
-        </Link>
-      </div>
-
-      <SectionHeading
-        level={1}
-        title={t.title}
-        description={`${t.cluster_name} · ${formatDate(t.start_date)} – ${formatDate(t.end_date)} · ${t.duration_days} days · ${t.traveller_count} travellers`}
-        action={
-          <div className="flex flex-wrap gap-2">
+      <div className="relative -mx-4 -mt-8 mb-8 overflow-hidden sm:-mx-6 sm:rounded-b-3xl">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={destinationImage(t.cluster_slug, 1600)}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10" />
+        <div className="relative px-4 pb-8 pt-28 sm:px-8">
+          <Link href="/trips" className="text-sm text-white/80 hover:underline">
+            ← My trips
+          </Link>
+          <h1 className="mt-2 font-display text-3xl text-white sm:text-4xl">{t.title}</h1>
+          <p className="mt-1 text-sm text-white/85">
+            {t.cluster_name} · {formatDate(t.start_date)} – {formatDate(t.end_date)} ·{' '}
+            {t.duration_days} days · {t.traveller_count} travellers
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
             <Link href={`/trips/${id}/group`}>
-              <Button variant="secondary" size="sm">
-                Group room
+              <Button size="sm" variant="secondary">
+                Invite group
               </Button>
             </Link>
             <Link href={`/trips/${id}/map`}>
-              <Button variant="secondary" size="sm">
-                Live map
+              <Button size="sm" variant="secondary">
+                Map
               </Button>
             </Link>
+            <Button size="sm" variant="secondary" onClick={() => window.print()}>
+              Print / PDF
+            </Button>
           </div>
-        }
-      />
-
-      <div className="mb-5 flex flex-wrap gap-2">
-        <Badge tone="indigo">{titleise(t.pace)} pace</Badge>
-        <Badge tone="neutral">{titleise(t.transport_mode)}</Badge>
-        <Badge tone="neutral">{titleise(t.accommodation_tier)}</Badge>
-        {t.accessibility_required && <Badge tone="teal">Step-free required</Badge>}
-        {t.has_seniors && <Badge tone="neutral">With seniors</Badge>}
-        {t.has_children && <Badge tone="neutral">With children</Badge>}
-        <Badge tone="saffron">
-          {t.preferences_submitted}/{t.members.length} preferences submitted
-        </Badge>
+        </div>
       </div>
 
       {notice && (
@@ -179,33 +173,12 @@ export default function TripPage() {
 
       {itinerary.data && (
         <>
-          {/* ---- summary strip ---- */}
+          {/* ---- summary ---- */}
           <Card className="mb-5 p-5">
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge tone={itinerary.data.is_valid ? 'teal' : 'clay'}>
-                  {itinerary.data.is_valid ? 'Validated' : 'Invalid'}
-                </Badge>
-                <Badge tone="neutral">v{itinerary.data.version}</Badge>
-                <Badge tone="neutral">{titleise(itinerary.data.generator)}</Badge>
-                <Badge tone="neutral">
-                  {itinerary.data.validation.checks_run} checks passed
-                </Badge>
-                <Badge
-                  tone={itinerary.data.explanation_source === 'llm' ? 'indigo' : 'neutral'}
-                  title={
-                    itinerary.data.explanation_source === 'llm'
-                      ? `Explained by ${itinerary.data.llm_provider}`
-                      : 'No language model configured — this is the deterministic template'
-                  }
-                >
-                  {itinerary.data.explanation_source === 'llm'
-                    ? `Explained by ${itinerary.data.llm_provider}`
-                    : 'Template explanation'}
-                </Badge>
-              </div>
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <h2 className="font-display text-lg text-ink dark:text-sand-100">Your plan</h2>
               <Button
-                variant="secondary"
+                variant="ghost"
                 size="sm"
                 loading={generate.isPending}
                 onClick={() => generate.mutate(true)}
@@ -218,21 +191,11 @@ export default function TripPage() {
             </p>
           </Card>
 
-          {/* ---- solver trace ---- */}
-          <div className="mb-5">
-            <SolverTrace
-              stats={itinerary.data.solver_stats}
-              generator={itinerary.data.generator}
-              checksRun={itinerary.data.validation.checks_run}
-            />
-          </div>
-
           {/* ---- modification actions ---- */}
           <Card className="mb-5 p-5">
-            <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
-              <h2 className="font-display text-base text-ink dark:text-sand-100">Adjust</h2>
-              <p className="text-xs text-ink-faint">Each change re-runs the solver and validator</p>
-            </div>
+            <h2 className="mb-3 font-display text-base text-ink dark:text-sand-100">
+              Not quite right?
+            </h2>
             <div className="flex flex-wrap gap-2">
               {QUICK_ACTIONS.map((qa) => (
                 <Button
@@ -351,17 +314,6 @@ export default function TripPage() {
             </div>
             <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
               <ItinerarySummary itinerary={itinerary.data} />
-              <Link href={`/trips/${id}/analytics`} className="block">
-                <Card className="p-4 transition-shadow hover:shadow-lift">
-                  <p className="text-sm font-semibold text-ink dark:text-sand-100">
-                    Why these places? →
-                  </p>
-                  <p className="mt-0.5 text-xs text-ink-muted dark:text-sand-400">
-                    Every candidate&apos;s nine score components, ranked — and what changed between
-                    versions.
-                  </p>
-                </Card>
-              </Link>
               <Card className="p-5">
                 <h3 className="mb-2 font-display text-base text-ink dark:text-sand-100">
                   Share &amp; export
@@ -385,9 +337,6 @@ export default function TripPage() {
                     onClick={() => downloadItinerary(itinerary.data!, t.title)}
                   >
                     Download as JSON
-                  </Button>
-                  <Button variant="ghost" size="sm" full onClick={() => window.print()}>
-                    Print / save as PDF
                   </Button>
                 </div>
               </Card>
