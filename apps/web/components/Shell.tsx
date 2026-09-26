@@ -101,8 +101,11 @@ export function Header() {
           >
             ✈
           </span>
-          <span className="font-display text-lg font-semibold tracking-tight text-ink dark:text-sand-100">
-            YatraAI
+          <span className="leading-tight">
+            <span className="block font-display text-lg font-semibold tracking-tight text-ink dark:text-sand-100">
+              YatraAI
+            </span>
+            <span className="block text-[11px] text-ink-faint">Built by Gupta Prasad Adhikari</span>
           </span>
         </Link>
 
