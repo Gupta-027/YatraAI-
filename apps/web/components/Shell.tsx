@@ -105,7 +105,9 @@ export function Header() {
             <span className="block font-display text-lg font-semibold tracking-tight text-ink dark:text-sand-100">
               YatraAI
             </span>
-            <span className="block text-[11px] text-ink-faint">Built by Gupta Prasad Adhikari</span>
+            <span className="block text-[11px] font-bold text-ink-muted dark:text-sand-300">
+              Built by Gupta Prasad Adhikari
+            </span>
           </span>
         </Link>
 
@@ -182,7 +184,10 @@ export function Footer() {
   return (
     <footer className="mt-16 border-t border-[rgb(var(--line))]">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6 text-xs text-ink-faint sm:px-6">
-        <span>© YatraAI · Simple group itineraries for India</span>
+        <span>
+          © YatraAI · Built by{' '}
+          <strong className="font-bold text-ink dark:text-sand-100">Gupta Prasad Adhikari</strong>
+        </span>
         <span>Opening hours and fees may change, check before you go.</span>
       </div>
     </footer>
